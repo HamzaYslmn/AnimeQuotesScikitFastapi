@@ -1,42 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnimeQuotes ML</title>
-    <link rel="stylesheet" href="{{ url_for('web', path='/style.css') }}">
-    <script src="https://code.iconify.design/iconify-icon/2.0.0/iconify-icon.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AnimeQuotes ML</title>
+  <link rel="stylesheet" href="{{ url_for('web', path='/style.css') }}">
+  <script src="https://code.iconify.design/iconify-icon/2.0.0/iconify-icon.min.js"></script>
 </head>
-<body class="dark-mode">
-    <div class="app-container">
-        <!-- Introductory message -->
-        <div class="intro-message">
-            <p>Hello!!! I'm AnimeQuotes ML bot. You can ask me for English anime quotes. Give me a word and I will find it for you. "english word" needed. But I can translate into English.</p>
-        </div>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <h1>AnimeQuotes ML</h1>
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <iconify-icon id="theme-icon" icon="line-md:sun-rising-filled-loop"></iconify-icon>
+      </button>
+    </header>
 
-        <!-- Main content -->
-        <header class="header">
-            <h1>AnimeQuotes ML</h1>
-            <button class="theme-toggle" onclick="toggleTheme()">
-                <iconify-icon id="theme-icon" icon="line-md:sun-rising-filled-loop"></iconify-icon>
-            </button>
-        </header>
-        <div class="main-content">
-            <div class="chat-container">
-                <div class="message-list"></div>
-            </div>
-            <div class="input-container">
-                <input id="textInput" type="text" name="msg" placeholder="Message" />
-                <button onclick="sendMessage()" class="send-button">
-                    <iconify-icon icon="gis:search-data"></iconify-icon>
-                </button>
-                <select id="quote-type" class="quote-selector">
-                    <option value="TR" selected>TR</option>
-                    <option value="EN">EN</option>
-                </select>
-            </div>
-        </div>
+    <div class="main-content">
+      <div class="chat-container">
+        <div class="message-list"></div>
+      </div>
+
+      <div class="input-container">
+        <textarea id="textInput" name="msg" placeholder="Message"></textarea>
+        <button onclick="sendMessage()" class="send-button">
+          <iconify-icon icon="gis:search-data"></iconify-icon>
+        </button>
+        <select id="quote-type" class="quote-selector">
+          <option value="TR" selected>TR</option>
+          <option value="EN">EN</option>
+        </select>
+      </div>
     </div>
-    <script src="{{ url_for('web', path='/script.js') }}"></script>
+  </div>
+
+  <script src="{{ url_for('web', path='/script.js') }}"></script>
 </body>
 </html>
